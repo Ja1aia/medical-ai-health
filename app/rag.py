@@ -14,6 +14,8 @@ collection = client.get_or_create_collection("medquad")
 
 print("Loading BM25 index...")
 all_docs = collection.get()["documents"]
+if not all_docs:
+    raise RuntimeError("ChromaDB kosong saat load rag.py — ingest gagal.")
 tokenized_docs = [doc.split() for doc in all_docs]
 bm25 = BM25Okapi(tokenized_docs)
 print("BM25 ready.")
