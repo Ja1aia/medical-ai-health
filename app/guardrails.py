@@ -9,8 +9,18 @@ HARMFUL_PATTERNS = [
     r"how much.*to die",
     r"poison",
     r"drug.*abuse",
+    # Adversarial / jailbreak patterns
+    r"ignore.*instructions",
+    r"ignore.*system.*prompt",
+    r"bypass.*guardrail",
+    r"pretend.*doctor",
+    r"you are now dan",
+    r"as a.*professional.*lethal",
+    r"for research.*overdose",
+    r"not wake up",
+    r"drug.*combinations.*kill",
+    r"make.*poison",
 ]
-
 URGENT_PATTERNS = [
     r"chest pain",
     r"can't breathe",
