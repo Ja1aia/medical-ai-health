@@ -6,6 +6,10 @@ primary_region = "sin"
 [processes]
   app = "bash scripts/startup.sh"
 
+[mounts]
+  source = "chroma_data"
+  destination = "/app/chroma_db"
+
 [http_service]
   internal_port = 8080
   force_https = true
