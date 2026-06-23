@@ -1,4 +1,18 @@
 import re
+import logging
+import os
+import re
+import logging
+import os
+
+os.makedirs("logs", exist_ok=True)
+
+# Pakai named logger, bukan basicConfig
+guardrails_logger = logging.getLogger("guardrails")
+guardrails_logger.setLevel(logging.INFO)
+handler = logging.FileHandler("logs/guardrails_audit.log")
+handler.setFormatter(logging.Formatter("%(asctime)s - %(message)s"))
+guardrails_logger.addHandler(handler)
 
 HARMFUL_PATTERNS = [
     r"overdose",
@@ -9,7 +23,6 @@ HARMFUL_PATTERNS = [
     r"how much.*to die",
     r"poison",
     r"drug.*abuse",
-    # Adversarial / jailbreak patterns
     r"ignore.*instructions",
     r"ignore.*system.*prompt",
     r"bypass.*guardrail",
@@ -21,6 +34,8 @@ HARMFUL_PATTERNS = [
     r"drug.*combinations.*kill",
     r"make.*poison",
 ]
+
+
 URGENT_PATTERNS = [
     r"chest pain",
     r"can't breathe",
@@ -33,14 +48,14 @@ URGENT_PATTERNS = [
     r"bleeding heavily",
     r"perdarahan",
 ]
-
-
 def check_input(text):
     text_lower = text.lower()
 
-    # Cek urgent dulu
     for pattern in URGENT_PATTERNS:
         if re.search(pattern, text_lower):
+            guardrails_logger.info(
+                f"URGENT DETECTED | pattern: {pattern} | input: {text[:100]}"
+            )
             return {
                 "allowed": False,
                 "type": "urgent",
@@ -51,9 +66,11 @@ def check_input(text):
                 ),
             }
 
-    # Cek harmful
     for pattern in HARMFUL_PATTERNS:
         if re.search(pattern, text_lower):
+            guardrails_logger.info(
+                f"HARMFUL DETECTED | pattern: {pattern} | input: {text[:100]}"
+            )
             return {
                 "allowed": False,
                 "type": "harmful",
@@ -63,13 +80,14 @@ def check_input(text):
                 ),
             }
 
+    guardrails_logger.info(f"INPUT ALLOWED | input: {text[:100]}")
     return {"allowed": True, "type": None, "message": None}
 
 
 def check_output(text):
-    # Pastikan response tidak mengandung dosis spesifik obat
     dose_pattern = r"\b\d+\s*(mg|ml|mcg|gram|tablet|pill)\b"
     if re.search(dose_pattern, text.lower()):
+        guardrails_logger.info(f"OUTPUT WARNING | dose information detected")
         return {
             "allowed": True,
             "warning": "Response mengandung informasi dosis. Tambahkan disclaimer.",
