@@ -1,6 +1,16 @@
 from presidio_analyzer import AnalyzerEngine
 from presidio_anonymizer import AnonymizerEngine, OperatorConfig
 import re
+import logging
+import os
+
+# Setup log file
+os.makedirs("logs", exist_ok=True)
+logging.basicConfig(
+    filename="logs/pii_audit.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(message)s",
+)
 
 analyzer = AnalyzerEngine()
 anonymizer = AnonymizerEngine()
@@ -38,6 +48,14 @@ def redact_pii_indonesian(text):
 
 
 def detect_and_redact(text):
+    original = text
     text = redact_pii_indonesian(text)
     text = redact_pii(text)
+
+    if original != text:
+        logging.info(f"PII DETECTED AND REDACTED")
+        logging.info(f"Input to LLM (redacted): {text}")
+    else:
+        logging.info(f"No PII detected | Input to LLM: {text}")
+
     return text

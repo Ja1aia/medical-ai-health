@@ -15,15 +15,26 @@ def get_cached(query):
         return None
     distance = results["distances"][0][0]
     if distance < (1 - SIMILARITY_THRESHOLD):
-        return results["metadatas"][0][0].get("answer")
+        metadata = results["metadatas"][0][0]
+        return {
+            "answer": metadata.get("answer"),
+            "sources": (
+                metadata.get("sources", "").split("|||")
+                if metadata.get("sources")
+                else []
+            ),
+        }
     return None
 
 
-def set_cache(query, answer):
+def set_cache(query, answer, sources=None):
     query_embedding = embedder.encode(query).tolist()
+    sources_str = "|||".join(
+        [s if isinstance(s, str) else str(s) for s in (sources or [])]
+    )
     cache_collection.add(
         ids=[f"cache_{hash(query)}"],
         documents=[query],
         embeddings=[query_embedding],
-        metadatas=[{"answer": answer}],
+        metadatas=[{"answer": answer, "sources": sources_str}],
     )

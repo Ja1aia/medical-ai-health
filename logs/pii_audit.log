@@ -1,0 +1,249 @@
+2026-06-23 10:38:44,062 - nlp_engine not provided, creating default.
+2026-06-23 10:38:45,643 - Created NLP engine: spacy. Loaded models: ['en']
+2026-06-23 10:38:45,643 - registry not provided, creating default.
+2026-06-23 10:38:45,651 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:38:45,651 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:38:45,651 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:38:45,651 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:38:45,651 - Loaded recognizer: UsBankRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: UsLicenseRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: UsItinRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: UsPassportRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: UsSsnRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: NhsRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: EsNifRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: EsNieRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: ItDriverLicenseRecognizer
+2026-06-23 10:38:45,652 - Loaded recognizer: ItFiscalCodeRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: ItVatCodeRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: ItIdentityCardRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: ItPassportRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: PlPeselRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: CryptoRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: DateRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: EmailRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: IbanRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: IpRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: MedicalLicenseRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: PhoneRecognizer
+2026-06-23 10:38:45,653 - Loaded recognizer: UrlRecognizer
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: es, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: pl, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - EsNifRecognizer supported languages: es, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - EsNieRecognizer supported languages: es, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - ItDriverLicenseRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - ItFiscalCodeRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - ItVatCodeRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - ItIdentityCardRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:38:45,653 - Recognizer not added to registry because language is not supported by registry - ItPassportRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:38:45,654 - Recognizer not added to registry because language is not supported by registry - PlPeselRecognizer supported languages: pl, registry supported languages: en
+2026-06-23 10:38:45,654 - Loaded recognizer: SpacyRecognizer
+2026-06-23 10:38:45,658 - No device provided, using cpu
+2026-06-23 10:38:45,967 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:45,985 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:46,276 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:46,288 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:46,289 - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-06-23 10:38:46,546 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:46,557 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:46,820 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:46,834 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-06-23 10:38:47,110 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:47,121 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:47,389 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:47,402 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:47,774 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:38:48,033 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:48,050 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:48,462 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:38:48,740 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:38:49,002 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:38:49,335 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:38:49,605 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:49,617 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:49,884 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:49,895 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:50,169 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:50,180 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:50,444 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:50,455 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:50,727 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-06-23 10:38:50,999 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-06-23 10:38:51,447 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:38:51,528 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-06-23 10:38:51,793 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-06-23 10:39:45,252 - nlp_engine not provided, creating default.
+2026-06-23 10:39:46,393 - Created NLP engine: spacy. Loaded models: ['en']
+2026-06-23 10:39:46,393 - registry not provided, creating default.
+2026-06-23 10:39:46,400 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: UsBankRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: UsLicenseRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: UsItinRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: UsPassportRecognizer
+2026-06-23 10:39:46,400 - Loaded recognizer: UsSsnRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: NhsRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: EsNifRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: EsNieRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: ItDriverLicenseRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: ItFiscalCodeRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: ItVatCodeRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: ItIdentityCardRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: ItPassportRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: PlPeselRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: CryptoRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: DateRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: EmailRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: IbanRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: IpRecognizer
+2026-06-23 10:39:46,401 - Loaded recognizer: MedicalLicenseRecognizer
+2026-06-23 10:39:46,402 - Loaded recognizer: PhoneRecognizer
+2026-06-23 10:39:46,402 - Loaded recognizer: UrlRecognizer
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: es, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: pl, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - EsNifRecognizer supported languages: es, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - EsNieRecognizer supported languages: es, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - ItDriverLicenseRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - ItFiscalCodeRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - ItVatCodeRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - ItIdentityCardRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - ItPassportRecognizer supported languages: it, registry supported languages: en
+2026-06-23 10:39:46,402 - Recognizer not added to registry because language is not supported by registry - PlPeselRecognizer supported languages: pl, registry supported languages: en
+2026-06-23 10:39:46,402 - Loaded recognizer: SpacyRecognizer
+2026-06-23 10:39:46,405 - No device provided, using cpu
+2026-06-23 10:39:46,668 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:46,680 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:46,948 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:46,965 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:46,966 - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-06-23 10:39:47,239 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:47,249 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:47,499 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:47,511 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-06-23 10:39:47,786 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:48,036 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:48,391 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:48,403 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:48,668 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:39:48,930 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:48,942 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:49,356 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:39:49,615 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:39:49,886 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:39:50,144 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 10:39:50,403 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:50,415 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:50,687 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:50,697 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:50,966 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:50,978 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:51,245 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:51,255 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:51,519 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-06-23 10:39:51,797 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-06-23 10:39:52,095 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 10:39:52,107 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-06-23 10:39:52,360 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-06-23 10:40:00,118 - Fetching all recognizers for language en
+2026-06-23 10:40:00,223 - PII DETECTED AND REDACTED
+2026-06-23 10:40:00,223 - Input to LLM (redacted): My name is [NAME], [NAME] [NIK], email [EMAIL]. What is diabetes?
+2026-06-23 10:40:00,812 - AFC is enabled with max remote calls: 10.
+2026-06-23 10:40:02,242 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-06-23 11:27:26,963 - nlp_engine not provided, creating default.
+2026-06-23 11:27:28,774 - Created NLP engine: spacy. Loaded models: ['en']
+2026-06-23 11:27:28,775 - registry not provided, creating default.
+2026-06-23 11:27:28,790 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: CreditCardRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: UsBankRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: UsLicenseRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: UsItinRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: UsPassportRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: UsSsnRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: NhsRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: EsNifRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: EsNieRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: ItDriverLicenseRecognizer
+2026-06-23 11:27:28,791 - Loaded recognizer: ItFiscalCodeRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: ItVatCodeRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: ItIdentityCardRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: ItPassportRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: PlPeselRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: CryptoRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: DateRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: EmailRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: IbanRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: IpRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: MedicalLicenseRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: PhoneRecognizer
+2026-06-23 11:27:28,792 - Loaded recognizer: UrlRecognizer
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: es, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: it, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - CreditCardRecognizer supported languages: pl, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - EsNifRecognizer supported languages: es, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - EsNieRecognizer supported languages: es, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - ItDriverLicenseRecognizer supported languages: it, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - ItFiscalCodeRecognizer supported languages: it, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - ItVatCodeRecognizer supported languages: it, registry supported languages: en
+2026-06-23 11:27:28,792 - Recognizer not added to registry because language is not supported by registry - ItIdentityCardRecognizer supported languages: it, registry supported languages: en
+2026-06-23 11:27:28,793 - Recognizer not added to registry because language is not supported by registry - ItPassportRecognizer supported languages: it, registry supported languages: en
+2026-06-23 11:27:28,793 - Recognizer not added to registry because language is not supported by registry - PlPeselRecognizer supported languages: pl, registry supported languages: en
+2026-06-23 11:27:28,793 - Loaded recognizer: SpacyRecognizer
+2026-06-23 11:27:28,797 - No device provided, using cpu
+2026-06-23 11:27:29,054 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:29,074 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:29,350 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:29,361 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:29,363 - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-06-23 11:27:29,630 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:29,639 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:29,915 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:29,927 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-06-23 11:27:30,195 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:30,205 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:30,478 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:30,489 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:30,763 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 11:27:31,017 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:31,030 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:31,445 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 11:27:31,704 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 11:27:31,967 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 11:27:32,233 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-06-23 11:27:32,547 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:32,568 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:32,914 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:32,928 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:33,194 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:33,208 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:33,467 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:33,483 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:33,776 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-06-23 11:27:34,058 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-06-23 11:27:34,390 - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-06-23 11:27:34,404 - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-06-23 11:27:34,679 - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-06-23 11:28:36,898 - Fetching all recognizers for language en
+2026-06-23 11:28:37,002 - No PII detected | Input to LLM: What is diabetes?
+2026-06-23 11:28:37,785 - AFC is enabled with max remote calls: 10.
+2026-06-23 11:28:39,484 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-06-23 11:30:00,610 - Fetching all recognizers for language en
+2026-06-23 11:30:00,616 - No PII detected | Input to LLM: What is (are) keratoderma with woolly hair ?
+2026-06-23 11:30:46,233 - Fetching all recognizers for language en
+2026-06-23 11:30:46,239 - No PII detected | Input to LLM: What is (are) lacrimo-auriculo-dento-digital syndrome ?
+2026-06-23 11:31:04,144 - Fetching all recognizers for language en
+2026-06-23 11:31:04,151 - PII DETECTED AND REDACTED
+2026-06-23 11:31:04,152 - Input to LLM (redacted): apa [NAME]dento-digital syndrome ?
+2026-06-23 11:31:04,692 - AFC is enabled with max remote calls: 10.
+2026-06-23 11:31:06,161 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-06-23 11:33:39,661 - Fetching all recognizers for language en
+2026-06-23 11:33:39,668 - No PII detected | Input to LLM: What are the treatments for pilomatricoma ?
+2026-06-23 11:33:40,285 - AFC is enabled with max remote calls: 10.
+2026-06-23 11:33:41,448 - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-06-23 11:35:17,041 - Fetching all recognizers for language en
+2026-06-23 11:35:17,047 - No PII detected | Input to LLM: What is lacrimo-auriculo-dento-digital syndrome?

@@ -25,15 +25,17 @@ print("Loading reranker...")
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 print("Reranker ready.")
 
+
 def hybrid_search(query, top_k=5):
-    # Dense retrieval
     query_embedding = embedder.encode(query).tolist()
     dense_results = collection.query(
-        query_embeddings=[query_embedding], n_results=top_k
+        query_embeddings=[query_embedding],
+        n_results=top_k,
+        include=["documents", "metadatas"],
     )
     dense_docs = dense_results["documents"][0]
+    dense_meta = dense_results["metadatas"][0]
 
-    # BM25 retrieval
     tokenized_query = query.split()
     bm25_scores = bm25.get_scores(tokenized_query)
     top_bm25_indices = sorted(
@@ -41,9 +43,18 @@ def hybrid_search(query, top_k=5):
     )[:top_k]
     bm25_docs = [all_docs[i] for i in top_bm25_indices]
 
-    # Combine dan deduplicate
-    combined = list(dict.fromkeys(dense_docs + bm25_docs))
-    return combined[:top_k]
+    # Combine dengan metadata
+    seen = {}
+    for doc, meta in zip(dense_docs, dense_meta):
+        if doc not in seen:
+            seen[doc] = meta
+
+    for doc in bm25_docs:
+        if doc not in seen:
+            seen[doc] = {"url": "", "source": "", "question": ""}
+
+    combined = list(seen.items())[:top_k]
+    return [d for d, _ in combined], [m for _, m in combined]
 
 
 def generate_answer(query, context_docs):
@@ -87,16 +98,23 @@ def rerank(query, docs, top_k=5):
 
 
 def rag_pipeline(query):
-    # Retrieve lebih banyak dulu untuk reranking
-    context_docs = hybrid_search(query, top_k=10)
-    # Rerank ke top 5
-    reranked_docs = rerank(query, context_docs, top_k=5)
-    result = generate_answer(query, reranked_docs)
+    context_docs, context_meta = hybrid_search(query, top_k=10)
+    reranked = rerank(query, context_docs, top_k=5)
+
+    # Match metadata ke reranked docs
+    reranked_meta = []
+    for doc in reranked:
+        for d, m in zip(context_docs, context_meta):
+            if d == doc:
+                reranked_meta.append(m)
+                break
+
+    result = generate_answer(query, reranked)
     return {
         "answer": result["answer"],
-        "sources": reranked_docs,
+        "sources": reranked,
+        "source_meta": reranked_meta,
         "input_tokens": result["input_tokens"],
         "output_tokens": result["output_tokens"],
         "cost_usd": result["cost_usd"],
     }
-

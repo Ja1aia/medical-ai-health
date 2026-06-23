@@ -16,9 +16,15 @@ class QueryRequest(BaseModel):
     query: str
 
 
+class Source(BaseModel):
+    text: str
+    url: str | None = None
+    source: str | None = None
+
+
 class QueryResponse(BaseModel):
     answer: str
-    sources: list[str]
+    sources: list[Source]
     warning: str | None = None
     cost_usd: float | None = None
     input_tokens: int | None = None
@@ -43,19 +49,34 @@ def query(request: QueryRequest):
         )
 
     # Step 3: Cek cache dulu
-    cached_answer = get_cached(clean_query)
-    if cached_answer:
-        return QueryResponse(answer=cached_answer, sources=[], warning="cached")
+    # Step 3: Cek cache
+    cached = get_cached(clean_query)
+    if cached:
+        return QueryResponse(
+            answer=cached["answer"],
+            sources=[Source(text=s) for s in cached["sources"] if s],
+            warning="cached",
+        )
 
+    # Step 4: RAG pipeline
     result = rag_pipeline(clean_query)
-
     output_check = check_output(result["answer"])
 
-    set_cache(clean_query, output_check["text"])
+    sources = [
+        Source(
+            text=doc[:200] + "..." if len(doc) > 200 else doc,
+            url=meta.get("url", ""),
+            source=meta.get("source", ""),
+        )
+        for doc, meta in zip(result["sources"], result.get("source_meta", []))
+    ]
+
+    # Step 5: Simpan ke cache dengan sources
+    set_cache(clean_query, output_check["text"], [s.text for s in sources])
 
     return QueryResponse(
         answer=output_check["text"],
-        sources=result["sources"],
+        sources=sources,
         warning=output_check["warning"],
         cost_usd=result.get("cost_usd"),
         input_tokens=result.get("input_tokens"),
