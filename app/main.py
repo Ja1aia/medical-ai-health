@@ -82,3 +82,45 @@ def query(request: QueryRequest):
         input_tokens=result.get("input_tokens"),
         output_tokens=result.get("output_tokens"),
     )
+
+
+class MCQRequest(BaseModel):
+    question: str
+    option_a: str
+    option_b: str
+    option_c: str
+    option_d: str
+
+
+from app.rag import rag_pipeline, hybrid_search
+
+@app.post("/eval_mcq")
+def eval_mcq(request: MCQRequest):
+    from google import genai as genai_client
+    import os
+
+    client = genai_client.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+    # Retrieve lebih banyak konteks
+    docs, _ = hybrid_search(request.question, top_k=10)
+    context = "\n\n".join(docs)
+
+    prompt = (
+        "You are a medical expert taking a multiple choice exam. "
+        "Use the context below to answer the question. "
+        "You MUST respond with ONLY a single letter: A, B, C, or D. "
+        "Do not write anything else.\n\n"
+        f"Context:\n{context}\n\n"
+        f"Question: {request.question}\n\n"
+        f"A) {request.option_a}\n"
+        f"B) {request.option_b}\n"
+        f"C) {request.option_c}\n"
+        f"D) {request.option_d}\n\n"
+        "Your answer (single letter only):"
+    )
+
+    response = client.models.generate_content(
+        model="gemini-3.1-flash-lite", contents=prompt
+    )
+
+    return {"answer": response.text.strip()[:5]}

@@ -25,13 +25,14 @@ def eval_retrieval(n_samples=50):
 
         if not question or not answer or len(answer.strip()) < 50:
             continue
-
-        results = hybrid_search(question, top_k=5)
+        docs, _ = hybrid_search(question, top_k=5)
 
         # Cek apakah answer asli ada di retrieved docs (partial match)
         answer_words = set(answer.lower().split()[:20])
-        found = any(len(answer_words & set(doc.lower().split())) > 5 for doc in results)
-
+        found = any(
+            len(answer_words & set(doc.lower().split())) > 5
+            for doc in docs
+        )
         if found:
             correct += 1
         total += 1
@@ -103,6 +104,129 @@ def eval_pii(n_samples=10):
     return redaction_rate
 
 
+def eval_medqa_usmle(n_samples=50):
+    print("\nRunning MedQA-USMLE eval...")
+    from datasets import load_dataset
+    import requests
+    import re
+
+    dataset = load_dataset("GBaker/MedQA-USMLE-4-options", split="test")
+
+    correct = 0
+    total = 0
+
+    for i, row in enumerate(dataset):
+        if total >= n_samples:
+            break
+
+        question = row.get("question", "")
+        options = row.get("options", {})
+        answer_idx = row.get("answer_idx", "")
+
+        if not question or not options:
+            continue
+
+        # Format prompt
+        options_text = "\n".join([f"{k}) {v}" for k, v in options.items()])
+        prompt = (
+            f"Medical question (answer with only the letter A, B, C, or D):\n\n"
+            f"{question}\n\n"
+            f"Options:\n{options_text}\n\n"
+            f"Answer (letter only):"
+        )
+
+        try:
+            response = requests.post(
+                "http://localhost:8000/query", json={"query": prompt}, timeout=30
+            )
+            data = response.json()
+            ai_answer = data.get("answer", "")
+
+            # Extract letter
+            match = re.search(r"\b([A-D])\b", ai_answer[:100])
+            predicted = match.group(1).upper() if match else ""
+
+            if predicted == answer_idx.upper():
+                correct += 1
+            total += 1
+
+            if total % 10 == 0:
+                print(f"Progress: {total}/{n_samples} | Accuracy: {correct/total:.2f}")
+
+            # Debug: print jawaban
+            print(f"Q: {question[:80]}...")
+            print(f"Predicted: {predicted} | Correct: {answer_idx}")
+            print(f"AI Answer: {ai_answer[:150]}")
+            print("---")
+
+        except Exception as e:
+            print(f"Error on row {i}: {e}")
+
+    accuracy = correct / total if total > 0 else 0
+    print(f"MedQA-USMLE Accuracy: {accuracy:.2f} ({correct}/{total})")
+    return accuracy
+
+
+def eval_medmcqa(n_samples=50):
+    print("\nRunning MedMCQA eval...")
+    from datasets import load_dataset
+    import requests
+    import re
+
+    dataset = load_dataset("openlifescienceai/medmcqa", split="validation")
+    idx_to_letter = {0: "A", 1: "B", 2: "C", 3: "D"}
+
+    correct = 0
+    total = 0
+
+    for i, row in enumerate(dataset):
+        if total >= n_samples:
+            break
+
+        question = row.get("question", "")
+        opa = row.get("opa", "")
+        opb = row.get("opb", "")
+        opc = row.get("opc", "")
+        opd = row.get("opd", "")
+        cop = row.get("cop", 0)
+        answer_letter = idx_to_letter.get(cop, "A")
+
+        if not question:
+            continue
+
+        try:
+            response = requests.post(
+                "http://localhost:8000/eval_mcq",
+                json={
+                    "question": question,
+                    "option_a": opa,
+                    "option_b": opb,
+                    "option_c": opc,
+                    "option_d": opd,
+                },
+                timeout=30,
+            )
+            data = response.json()
+            ai_answer = data.get("answer", "")
+
+            match = re.search(r"\b([A-D])\b", ai_answer[:20])
+            predicted = match.group(1).upper() if match else ""
+
+            if predicted == answer_letter:
+                correct += 1
+            total += 1
+
+            if total % 10 == 0:
+                print(f"Progress: {total}/{n_samples} | Accuracy: {correct/total:.2f}")
+
+        except Exception as e:
+            print(f"Error on row {i}: {e}")
+
+    accuracy = correct / total if total > 0 else 0
+    print(f"MedMCQA Accuracy: {accuracy:.2f} ({correct}/{total})")
+    return accuracy
+
+
 if __name__ == "__main__":
     print("=" * 50)
     print("EVALUATION REPORT")
@@ -111,10 +235,12 @@ if __name__ == "__main__":
     recall = eval_retrieval(n_samples=50)
     trigger_rate = eval_safety(n_harmful=20)
     redaction_rate = eval_pii(n_samples=10)
-
+    medqa_acc = eval_medmcqa(n_samples=50)
+    
     print("\n" + "=" * 50)
     print("SUMMARY")
     print("=" * 50)
     print(f"Retrieval Recall@5 : {recall:.2f} (target >= 0.70)")
     print(f"Guardrail Trigger  : {trigger_rate:.2f} (target >= 0.95)")
     print(f"PII Redaction Rate : {redaction_rate:.2f} (target >= 0.95)")
+    print(f"MedMCQA Accuracy   : {medqa_acc:.2f} (target >= 0.60)")
