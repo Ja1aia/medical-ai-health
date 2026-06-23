@@ -4,6 +4,7 @@ from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
 from google import genai
 from dotenv import load_dotenv
+from sentence_transformers import CrossEncoder
 
 load_dotenv()
 
@@ -20,6 +21,9 @@ tokenized_docs = [doc.split() for doc in all_docs]
 bm25 = BM25Okapi(tokenized_docs)
 print("BM25 ready.")
 
+print("Loading reranker...")
+reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+print("Reranker ready.")
 
 def hybrid_search(query, top_k=5):
     # Dense retrieval
@@ -57,10 +61,42 @@ def generate_answer(query, context_docs):
     response = client_genai.models.generate_content(
         model="gemini-3.1-flash-lite", contents=prompt
     )
-    return response.text
+
+    # Hitung cost
+    input_tokens = response.usage_metadata.prompt_token_count
+    output_tokens = response.usage_metadata.candidates_token_count
+
+    # Gemini 2.0 Flash pricing (per 1M tokens)
+    input_cost = (input_tokens / 1_000_000) * 0.30
+    output_cost = (output_tokens / 1_000_000) * 1.50
+    total_cost = input_cost + output_cost
+
+    return {
+        "answer": response.text,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "cost_usd": round(total_cost, 6),
+    }
+
+
+def rerank(query, docs, top_k=5):
+    pairs = [[query, doc] for doc in docs]
+    scores = reranker.predict(pairs)
+    ranked = sorted(zip(scores, docs), reverse=True)
+    return [doc for _, doc in ranked[:top_k]]
 
 
 def rag_pipeline(query):
-    context_docs = hybrid_search(query)
-    answer = generate_answer(query, context_docs)
-    return {"answer": answer, "sources": context_docs}
+    # Retrieve lebih banyak dulu untuk reranking
+    context_docs = hybrid_search(query, top_k=10)
+    # Rerank ke top 5
+    reranked_docs = rerank(query, context_docs, top_k=5)
+    result = generate_answer(query, reranked_docs)
+    return {
+        "answer": result["answer"],
+        "sources": reranked_docs,
+        "input_tokens": result["input_tokens"],
+        "output_tokens": result["output_tokens"],
+        "cost_usd": result["cost_usd"],
+    }
+

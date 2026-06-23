@@ -20,6 +20,9 @@ class QueryResponse(BaseModel):
     answer: str
     sources: list[str]
     warning: str | None = None
+    cost_usd: float | None = None
+    input_tokens: int | None = None
+    output_tokens: int | None = None
 
 
 @app.get("/")
@@ -44,17 +47,17 @@ def query(request: QueryRequest):
     if cached_answer:
         return QueryResponse(answer=cached_answer, sources=[], warning="cached")
 
-    # Step 4: RAG pipeline
     result = rag_pipeline(clean_query)
 
-    # Step 5: Guardrails output check
     output_check = check_output(result["answer"])
 
-    # Step 6: Simpan ke cache
     set_cache(clean_query, output_check["text"])
 
     return QueryResponse(
         answer=output_check["text"],
         sources=result["sources"],
         warning=output_check["warning"],
+        cost_usd=result.get("cost_usd"),
+        input_tokens=result.get("input_tokens"),
+        output_tokens=result.get("output_tokens"),
     )
